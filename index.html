@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2026 Elections | Why Your Vote Matters</title>
+    <style>
+      :root {
+        --bg: #0b1020;
+        --panel: #111a2d;
+        --panel-soft: #182545;
+        --text: #edf3ff;
+        --muted: #b7c5e5;
+        --accent: #6ec6ff;
+        --accent-2: #8ae9c1;
+        --warning: #ffd166;
+        --shadow: rgba(10, 15, 30, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, #091324 0%, #0f1c33 100%);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background: rgba(10, 16, 30, 0.9);
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 10;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 72px;
+      }
+
+      .brand {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .hero {
+        padding: 90px 0 60px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        background: rgba(110, 198, 255, 0.12);
+        border: 1px solid rgba(110, 198, 255, 0.25);
+        color: var(--accent);
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 5rem);
+        line-height: 1.05;
+        margin: 0 0 18px;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.1rem;
+        max-width: 620px;
+        margin-bottom: 26px;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 20px;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 14px 22px;
+        border-radius: 12px;
+        font-weight: 700;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .primary {
+        background: linear-gradient(135deg, var(--accent), #4fa5ff);
+        color: #06111d;
+      }
+
+      .secondary {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--text);
+      }
+
+      .hero-card {
+        background: linear-gradient(180deg, rgba(24, 37, 69, 0.95), rgba(17, 26, 45, 0.95));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        padding: 28px;
+        box-shadow: 0 24px 50px var(--shadow);
+      }
+
+      .stat {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .stat strong {
+        font-size: 1.8rem;
+        color: var(--warning);
+      }
+
+      .stat span {
+        color: var(--muted);
+      }
+
+      section {
+        padding: 28px 0 60px;
+      }
+
+      .section-heading {
+        margin-bottom: 26px;
+      }
+
+      .section-heading h2 {
+        margin: 0 0 10px;
+        font-size: clamp(2rem, 3vw, 3rem);
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .card {
+        background: rgba(17, 26, 45, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 24px;
+      }
+
+      .card h3 {
+        margin-top: 0;
+        font-size: 1.3rem;
+      }
+
+      .card p {
+        color: var(--muted);
+        margin-bottom: 0;
+      }
+
+      .highlight {
+        background: linear-gradient(180deg, rgba(142, 233, 193, 0.09), rgba(23, 33, 52, 0.7));
+      }
+
+      .issues {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .issue {
+        background: rgba(17, 26, 45, 0.9);
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 22px 22px 18px;
+      }
+
+      .issue h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      .issue ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      .footer {
+        padding: 26px 0 60px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 820px) {
+        .hero-grid,
+        .cards,
+        .issues {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          flex-direction: column;
+          justify-content: center;
+          padding: 16px 0;
+          gap: 10px;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">2026 ELECTIONS</div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#why-it-matters">Why it matters</a>
+          <a href="#issues">Key issues</a>
+          <a href="#take-action">Take action</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Your voice, your future</div>
+            <h1>Vote in 2026.</h1>
+            <p class="lead">
+              Elections shape the leaders, laws, and priorities that affect our schools,
+              neighborhoods, healthcare, jobs, and daily lives. When you vote, you help decide
+              what kind of future our communities will build.
+            </p>
+            <div class="cta-row">
+              <a class="button primary" href="#take-action">Make a plan to vote</a>
+              <a class="button secondary" href="#why-it-matters">Learn why it matters</a>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Voting facts">
+            <div class="stat">
+              <div>
+                <strong>1</strong>
+                <span>vote can influence local decisions</span>
+              </div>
+            </div>
+            <div class="stat">
+              <div>
+                <strong>100%</strong>
+                <span>of communities are affected by election outcomes</span>
+              </div>
+            </div>
+            <div class="stat">
+              <div>
+                <strong>YOUR</strong>
+                <span>voice helps shape representation and accountability</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="why-it-matters">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Why the 2026 elections matter</h2>
+            <p>Every election is a chance to influence the decisions that affect everyday life.</p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <h3>Leaders set priorities</h3>
+              <p>
+                Elected officials decide how public money is spent, what policies are adopted,
+                and which communities receive support and attention.
+              </p>
+            </article>
+
+            <article class="card highlight">
+              <h3>Voting protects democracy</h3>
+              <p>
+                Participation keeps leaders accountable and ensures the government reflects the
+                people it serves instead of only a small group of interests.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Your vote has impact</h3>
+              <p>
+                Elections can be decided by very small margins. In many communities, a single vote
+                can influence school funding, public safety, transportation, and housing policies.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="issues">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Issues on the ballot</h2>
+            <p>These are just a few of the areas voters can influence in 2026.</p>
+          </div>
+
+          <div class="issues">
+            <article class="issue">
+              <h3>Economy and jobs</h3>
+              <ul>
+                <li>Wages, inflation, and cost of living</li>
+                <li>Small business support and local growth</li>
+                <li>Workforce training and job opportunities</li>
+              </ul>
+            </article>
+
+            <article class="issue">
+              <h3>Education</h3>
+              <ul>
+                <li>School funding and teacher support</li>
+                <li>College affordability and student resources</li>
+                <li>Access to safe, high-quality learning spaces</li>
+              </ul>
+            </article>
+
+            <article class="issue">
+              <h3>Healthcare</h3>
+              <ul>
+                <li>Affordable care and coverage access</li>
+                <li>Public health and emergency preparedness</li>
+                <li>Support for families and vulnerable communities</li>
+              </ul>
+            </article>
+
+            <article class="issue">
+              <h3>Community safety and justice</h3>
+              <ul>
+                <li>Public safety investments</li>
+                <li>Equitable law enforcement and accountability</li>
+                <li>Programs that support safe neighborhoods</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="take-action">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Make a plan to vote</h2>
+            <p>Voting is not only a right, it is a responsibility that strengthens our democracy.</p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <h3>1. Check your registration</h3>
+              <p>Make sure your voter registration is current before the election deadline.</p>
+            </article>
+
+            <article class="card">
+              <h3>2. Learn the ballot</h3>
+              <p>Research candidates and measures so your vote reflects your values and priorities.</p>
+            </article>
+
+            <article class="card">
+              <h3>3. Vote on time</h3>
+              <p>Whether in person, early, or by mail, choose the method that works best for you and complete it before the deadline.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        Your vote shapes the future. Be informed, be prepared, and make your voice heard in 2026.
+      </div>
+    </footer>
+  </body>
+</html>
